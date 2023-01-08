@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f1faee;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  color: #82DDF0;
+}
+
+.nav-header {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #82DDF0;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vh 2vw;
+  background-color: #25283D;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.product-container , .stock-container{
+  display: flex;
+  gap: 30px;
+  padding: 2vh 3vw;
+  flex-wrap: wrap;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+  gap: 10px;
+  box-shadow: 2px 5px 9px #888888;
+}
+
+.product-details>div {
+  font-size: 1.25rem;
+}
+
+.home-container {
+  padding: 2vh 20vw;
+}
+
+.text-block {
+  font-size: 1.25rem;
+  margin: 5vh 0;
+  border: 1px solid #457b9d;
+  color: #457b9d;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.text-img-block {
+  display: flex;
+  align-items: center;
+  gap: 5vw
+}
+
+.home-img {
+  height: 30vh;
+  width: 40vw;
+  border: 8px double #457b9d;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+
+.form-container label, .form-container input {
+  display: block;
+  margin: 10px 10px;
+}
+
+.stock-form label, .stock-form input {
+  display: block;
+  width: 15vw;
+  margin: 10px 10px;
+}
+
+.submit-button {
+  margin: 10px 10px;
+}
+
+.form-header {
+  font-size: 1.5rem;
+  margin-bottom: 4vh;
+}
+
+.form-container {
+  padding-top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container form, .stock-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stock-page {
+  display: flex;
+}
+
+.stock-container {
+  width: 70%;
+}
+
+.product-img {
+  height: 200px;
+  width: 300px;
+}
