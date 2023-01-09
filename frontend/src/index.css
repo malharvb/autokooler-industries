@@ -19,7 +19,6 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
   font-size: 1.5rem;
   color: #82DDF0;
 }
@@ -83,12 +82,13 @@ a {
 .text-img-block {
   display: flex;
   align-items: center;
-  gap: 5vw
+  width: 100%;
+  gap: 5vw;
 }
 
 .home-img {
-  height: 30vh;
-  width: 40vw;
+  height: 200px;
+  width: 300px;
   border: 8px double #457b9d;
   border-radius: 10px;
   box-shadow: 5px 10px 18px #888888;
@@ -130,6 +130,7 @@ a {
 
 .stock-page {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .stock-container {
@@ -139,4 +140,38 @@ a {
 .product-img {
   height: 200px;
   width: 300px;
+}
+
+@media screen and (max-width: 480px) {
+  .text-img-block {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home-container  {
+    padding: 10px 4px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  *{
+    font-size: .75rem;
+  }
+
+  .product-container , .stock-container, .stock-page {
+    justify-content: center;
+  }
+
+  .form-header {
+    font-size: 2rem;
+  }
+
+  .stock-form label, .stock-form input, .form-container label, .form-container input, .submit-button{
+    font-size: 1.25rem;
+    width: 80vw;
+  }
+
 }
