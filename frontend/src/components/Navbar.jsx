@@ -16,7 +16,13 @@ function Navbar() {
       <div className="nav-links">
         <Link to="/products">Our Products</Link>
         {!user && (<Link to="/login">Login</Link>)}
-        {user && (<button type="button" onClick={handleClick}>Logout</button>)}
+        {user
+        && (
+        <>
+          <Link to="/privateStock">Stock</Link>
+          <button type="button" onClick={handleClick}>Logout</button>
+        </>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import {
-  createContext, useReducer, React, useEffect,
+  createContext, useReducer, React,
 } from 'react';
 import { PropTypes } from 'prop-types';
 
@@ -18,15 +18,7 @@ function userReducer(state, action) {
 }
 
 export function UserContextProvider({ children }) {
-  const [state, dispatch] = useReducer(userReducer, { user: null });
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if (user) {
-      dispatch({ type: 'LOGIN', payload: user });
-    }
-  }, []);
+  const [state, dispatch] = useReducer(userReducer, { user: JSON.parse(localStorage.getItem('user')) || null });
 
   return (
     <UserContext.Provider value={{ ...state, dispatch }}>

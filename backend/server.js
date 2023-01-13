@@ -7,6 +7,7 @@ const path = require('path')
 
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
+const privateStockRoutes = require('./routes/privateStockRoute')
 
 const port = process.env.PORT || 4000
 
@@ -17,6 +18,8 @@ app.use(express.static(path.resolve(__dirname, 'build')));
 app.use('/api/user', userRoutes)
 
 app.use('/api/product', productRoutes)
+
+app.use('/api/stock', privateStockRoutes)
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));

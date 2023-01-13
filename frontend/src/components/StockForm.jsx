@@ -8,7 +8,7 @@ function StockForm() {
   const [img, setImg] = useState(null);
   const [imgPath, setImgPath] = useState('');
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const success = addProduct(name, img);
@@ -21,7 +21,7 @@ function StockForm() {
   };
 
   return (
-    <form className="stock-form">
+    <form className="stock-form" onSubmit={handleSubmit}>
       <div className="input-container">
         <label>Product Name:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -38,7 +38,7 @@ function StockForm() {
           required
         />
       </div>
-      <button type="submit" className="submit-button" onClick={handleClick} disabled={isLoading}>Add Product</button>
+      <input type="submit" className="submit-button" disabled={isLoading} value="Add Product" />
       {error && <div className="error">{error}</div>}
     </form>
   );

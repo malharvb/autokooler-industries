@@ -8,8 +8,6 @@ const {getProducts, addProduct, deleteProduct} = require('../controllers/product
 
 router.get('/', getProducts)
 
-// router.get('/:id', )
-
 router.use(authCheck)
 
 router.post('/', addProduct)

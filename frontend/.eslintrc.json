@@ -17,6 +17,8 @@
         "react"
     ],
     "rules": {
-        "jsx-a11y/label-has-associated-control": "off"
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-alert": "off",
+        "no-underscore-dangle": "off"
     }
 }
