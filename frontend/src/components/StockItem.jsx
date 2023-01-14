@@ -58,7 +58,7 @@ function StockItem({ stockItem, refreshStockItem }) {
           <div key={item._id} className="stockitem-container">
             <span>{item.itemName}</span>
             <span className="item-count-container">
-              <button type="button" onClick={() => { handleCountClick((parseInt(item.itemCount, 10) - 1), item._id); }} disabled={isLoading}>-</button>
+              <button type="button" onClick={() => { if (parseInt(item.itemCount, 10) === 0) return; handleCountClick((parseInt(item.itemCount, 10) - 1), item._id); }} disabled={isLoading}>-</button>
               <span>{item.itemCount}</span>
               <button type="button" onClick={() => { handleCountClick((parseInt(item.itemCount, 10) + 1), item._id); }} disabled={isLoading}>+</button>
             </span>
@@ -84,11 +84,11 @@ function StockItem({ stockItem, refreshStockItem }) {
       <form className="stock-form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Name:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required maxLength="15" />
         </div>
         <div className="input-container">
           <label>Rate:</label>
-          <input type="text" value={rate} onChange={(e) => setRate(e.target.value)} />
+          <input type="text" value={rate} onChange={(e) => setRate(e.target.value)} maxLength="15" pattern="\d*" />
         </div>
         <input type="submit" className="submit-button" value="Add Item" />
         {error && <div className="error">{error}</div>}

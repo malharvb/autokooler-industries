@@ -19,6 +19,7 @@ const useStockItemAPI = () => {
     setIsLoading(false);
 
     if (response.ok) {
+      setError('');
       return json;
     }
     setError(json.error);
@@ -40,6 +41,7 @@ const useStockItemAPI = () => {
     setIsLoading(false);
 
     if (response.ok) {
+      setError('');
       return json;
     }
     setError(json.error);
@@ -61,6 +63,7 @@ const useStockItemAPI = () => {
 
     setIsLoading(false);
     if (response.ok) {
+      setError('');
       return json;
     }
     setError(json.error);
@@ -83,6 +86,7 @@ const useStockItemAPI = () => {
 
     setIsLoading(false);
     if (response.ok) {
+      setError('');
       return json;
     }
     setError(json.error);

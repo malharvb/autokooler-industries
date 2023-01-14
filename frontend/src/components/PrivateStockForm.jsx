@@ -32,7 +32,7 @@ function PrivateStockForm({ type }) {
     <form className="stock-form" onSubmit={handleSubmit}>
       <div className="input-container">
         <label>Name:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required maxLength="15" />
       </div>
       <input type="submit" className="submit-button" value="Add Item" />
     </form>

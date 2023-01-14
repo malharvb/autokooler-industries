@@ -24,7 +24,7 @@ function StockForm() {
     <form className="stock-form" onSubmit={handleSubmit}>
       <div className="input-container">
         <label>Product Name:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required maxLength="15" />
       </div>
       <div className="input-container">
         <label>Product Image:</label>
