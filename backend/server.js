@@ -11,6 +11,7 @@ const privateStockRoutes = require('./routes/privateStockRoute')
 
 const port = process.env.PORT || 4000
 
+
 app.use(express.json())
 
 app.use(express.static(path.resolve(__dirname, 'build')));

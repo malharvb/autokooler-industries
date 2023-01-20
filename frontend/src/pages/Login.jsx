@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import useLogin from '../hooks/useLogin';
 
 function Login() {
@@ -30,7 +30,9 @@ function Login() {
           <input type="password" id="password" name="password" onChange={(e) => { setPassword(e.target.value); }} value={password} maxLength="15" />
         </div>
         <button type="submit" className="submit-button" onClick={handleClick} disabled={isLoading}>Login</button>
+        <Link to="/passwordReset" id="change-password-link">Change Password ?</Link>
       </form>
+
       {error && <div className="error">{error}</div>}
     </div>
   );

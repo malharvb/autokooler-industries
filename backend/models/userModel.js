@@ -13,8 +13,8 @@ const userSchema = new mongoose.Schema( {
     },
 } )
 
-userSchema.statics.signin = async function(username, password) {
 
+userSchema.statics.signIn = async function(username, password) {
     const user = await this.findOne({username})
 
     if (!user) {
@@ -28,6 +28,53 @@ userSchema.statics.signin = async function(username, password) {
     }
 
     return user
+}
+
+
+userSchema.statics.changePassword = async function(username, password, newPassword) {
+    const user = await this.findOne({username})
+
+    if (!user) {
+        throw Error('Invalid user name')
+    }
+
+    const valid = await bcrypt.compare(password, user.password)
+
+    if (!valid) {
+        throw Error('Invalid password')
+    }
+
+    const salt = await bcrypt.genSalt(10)
+    const hashedNewPassword = await bcrypt.hash(newPassword, salt)
+
+    user.password = hashedNewPassword
+    user.save()
+
+    return user
+
+}
+
+userSchema.statics.changePassword = async function(username, password, newPassword) {
+    const user = await this.findOne({username})
+
+    if (!user) {
+        throw Error('Invalid user name')
+    }
+
+    const valid = await bcrypt.compare(password, user.password)
+
+    if (!valid) {
+        throw Error('Invalid password')
+    }
+
+    const salt = await bcrypt.genSalt(10)
+    const hashedNewPassword = await bcrypt.hash(newPassword, salt)
+
+    user.password = hashedNewPassword
+    user.save()
+
+    return user
+
 }
 
 module.exports = mongoose.model('User', userSchema)
