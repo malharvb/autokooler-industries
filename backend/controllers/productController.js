@@ -1,7 +1,6 @@
 const Product = require('../models/productModel')
 const mongoose = require('mongoose')
 
-const upload = require('../middleware/imageMiddleware')
 const fs = require('fs')
 
 const getProducts = async (req, res) => {
@@ -14,28 +13,23 @@ const getProducts = async (req, res) => {
     res.status(200).json(products)
 }
 
-const addProduct = (req, res) => {
+const addProduct = async (req, res) => {
+    const productObj = {
+        name: req.body.name,
+        img: {
+            data: fs.readFileSync('./uploads/' + req.file.filename),
+            contentType: 'image/jpg'
+        }
+    }
+    const product = await Product.create(productObj)
     
-    upload(req, res, async () => {
-        const productObj = {
-            name: req.body.name,
-            img: {
-                data: fs.readFileSync('./uploads/' + req.file.filename),
-                contentType: 'image/jpg'
-            }
-        }
-
-        const product = await Product.create(productObj)
-        
-        if (product) {
-            res.status(200).json(product)
-        }
-        else {
-            res.status(400).json({error: 'Incomplete form data provided'})
-        }
-        fs.rmSync(('./uploads/' + req.file.filename))
-
-    })
+    if (product) {
+        res.status(200).json(product)
+    }
+    else {
+        res.status(400).json({error: 'Incomplete form data provided'})
+    }
+    fs.rmSync(('./uploads/' + req.file.filename))
 }
 
 const deleteProduct = async (req, res) => {

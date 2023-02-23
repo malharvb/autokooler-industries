@@ -25,7 +25,15 @@ function ProductDetails({ product }) {
     }
   };
 
-  const base64String = btoa(String.fromCharCode(...new Uint8Array(img.data.data)));
+  function arrayBufferToBase64(buffer) {
+    let binary = '';
+    const bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => {
+      binary += String.fromCharCode(b);
+    });
+    return window.btoa(binary);
+  }
+  const base64String = arrayBufferToBase64(img.data.data);
 
   return (
     <div className="product-details">
